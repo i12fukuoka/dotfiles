@@ -3,18 +3,19 @@
 %以下、パッケージ
 \usepackage[margin=25truemm]{geometry}       %白枠幅
 \usepackage[dvipdfmx]{graphicx}              %図挿入用
+\usepackage{here}
 \usepackage{url}                             %urlを読み込む
+
 
 \title{}
 \author{IE5(32)福岡和弥}
 
+
 %以下、内容
 \begin{document}
 
-
 %以下、タイトル
 \maketitle
-
 
 %以下、本文
 \section{はじめに}
@@ -23,7 +24,8 @@
 
 
 %図の挿入
-%\begin{figure}[h]
+%\begin{figure}[H]
+%\centering
 %\includegraphics[clip = cm ,width = cm]{図のパス}
 %\caption{図の名称}
 %\label{参照するラベル名(任意)} \ref{ラベル名}と対応させる

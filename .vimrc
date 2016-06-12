@@ -46,10 +46,10 @@ set columns=238
 set lines=54
 
 "#####テンプレート#####
-autocmd BufNewFile *.html 0r ~/templates/html.txt "htmlのテンプレート
-autocmd BufNewFile *.c 0r ~/templates/c.txt
-autocmd BufNewFile *.java 0r ~/templates/java.txt
-autocmd BufNewFile *.tex 0r ~/templates/tex.txt
+autocmd BufNewFile *.html 0r ~/dotfiles/templates/html.txt "htmlのテンプレート
+autocmd BufNewFile *.c 0r ~/dotfiles/templates/c.txt
+autocmd BufNewFile *.java 0r ~/dotfiles/templates/java.txt
+autocmd BufNewFile *.tex 0r ~/dotfiles/templates/tex.txt
 
 "#####検索設定#####
 set ignorecase "大文字/小文字の区別なく検索する
