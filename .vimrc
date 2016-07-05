@@ -1,5 +1,5 @@
 "カラースキーマを設定
-colorscheme desert
+colorscheme murphy
 " 暗い配色にする
 set background=dark
 

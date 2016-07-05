@@ -5,9 +5,6 @@
 #viライクな操作を有効にする
 bindkey -v
 
-#emacs嫌い
-alias emacs=vim
-
 #カラーを使用できるようにする
 autoload -Uz colors
 colors
@@ -18,12 +15,37 @@ autoload -U compinit; compinit
 #beepを無効にする
 setopt no_beep
 
+
+####各種エイリアス####
+#接尾辞エイリアス
+alias -s pdf=open
+alias -s png=open
+alias -s jpg=open
+alias -s txt=less
+
+#emacs嫌い
+alias emacs=sl
+alias vi=vim
+
+#ついでに二つ前、三つ前に戻る設定を付加
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+#Cellarへの移動
+alias -g Cellar='/usr/local/Cellar'
+
+#グローバルエイリアス
+alias -g @g='| grep'
+alias -g @x='| xargs'
+
+
 ####ヒストリの設定####
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
 
 HISTTIMEFORMAT="[%Y/%M/%D %H:%M:%S] "
+
 
 ####補完に関するオプション####
 setopt auto_param_slash #ディレクトリ名の補完で末尾の/を自動的に付加
@@ -54,16 +76,13 @@ zstyle ':completion:*:default' menu select=2
 ####カラー表示####
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 export LSCOLORS=cxfxcxdxbxegedabagacad
-alias ls="ls -G"
+alias ls="ls -Ga"
 zstyle ':completion:*' list-colors 'di=33' 'ln=35' 'so=04' 'ex=32' 'bd=46;34' 'cd=43;34'
+
 
 ####ディレクトリ移動関連####
 #入力したコマンドが存在せず、かつディレクトリ名と一致するならディレクトリにcd
 setopt auto_cd
-
-#ついでに二つ前、三つ前に戻る設定を付加
-alias ...='cd ../..'
-alias ....='cd ../../..'
 
 #cdした先のディレクトリをディレクトリスタックに追加する
 #'cd + <tab>'でディレクトリの履歴が表示され、そこに移動できる
