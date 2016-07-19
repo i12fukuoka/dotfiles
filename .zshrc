@@ -22,6 +22,7 @@ alias -s pdf=open
 alias -s png=open
 alias -s jpg=open
 alias -s txt=less
+alias -s html=open
 
 #emacs嫌い
 alias emacs=sl
