@@ -199,9 +199,13 @@ if has('conceal')
     set conceallevel=2 concealcursor=niv
 endif
 
+" Enable snipMate compatibility feature.
 let g:neosnippet#enable_snipmate_compatibility = 1
-let g:neisnippet#snippets_directory='~/.vim/dein/repos/github.com/honza/vim-snippets/snippets'
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory='~/.vim/dein/repos/github.com/honza/vim-snippets/snippets'
 
+".latexじゃないと正常に動かないようなので.tex用に設定追加
+let g:tex_flavor='latex'
 
 "#####jscomplete-vimの設定#####
 autocmd FileType javascript
