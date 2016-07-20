@@ -19,9 +19,18 @@ if dein#load_state(expand('~/.vim/dein'))
     call dein#add('Shougo/vimproc.vim', {'build': 'make'})
 
     call dein#add('Shougo/neocomplete.vim') "補完機能、設定済
+    call dein#add('Shougo/neosnippet.vim') "補完強化、設定済
+    call dein#add('Shougo/neosnippet-snippets') "snippet.vimの辞書的な
+    call dein#add('honza/vim-snippets') "other snippets
     call dein#add('Shougo/unite.vim') "なんかいろいろと便利、未設定
     call dein#add('Yggdroot/indentLine') "インデント整えるやつ
     call dein#add('Shougo/neoyank.vim') "yank/history 未設定
+    call dein#add('itchyny/lightline.vim') "ステータスラインの改造用、未設定
+
+    call dein#add('mattn/jscomplete-vim') "javascriptのメソッド補完、設定済
+    call dein#add('jelera/vim-javascript-syntax') "javascriptのsyntax強化、設定無し?
+    call dein#add('jiangmiao/simple-javascript-indenter') "javascriptのインデント強化、設定済
+
 
     call dein#end()
     call dein#save_state()
@@ -70,7 +79,7 @@ filetype plugin indent on "ファイルタイプの自動認識
 "#####見易さ#####
 set cursorline "カーソルがある行を強調表示"
 set number "行番号の表示"
-set colorcolumn=80 "80行目に線を入れる
+"set colorcolumn=80 "80行目に線を入れる
 set scrolloff=3 "スクロール時の余白"
 set list "空白文字の可視化"
 set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:% "可視化した空白文字の表示形式
@@ -169,3 +178,44 @@ endif
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
+
+"####neosnippetの設定#####
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+            \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+    set conceallevel=2 concealcursor=niv
+endif
+
+let g:neosnippet#enable_snipmate_compatibility = 1
+let g:neisnippet#snippets_directory='~/.vim/dein/repos/github.com/honza/vim-snippets/snippets'
+
+
+"#####jscomplete-vimの設定#####
+autocmd FileType javascript
+            \ :setl omnifunc=jscomplete#CompleteJS
+let g:jscomplete_use = ['dom', 'moz', 'xpcom']
+
+
+"#####simple-javascript-indenterの設定#####
+let g:ShipleJsIndenter_BriefMode = 1
+let g:SimpleJsIndenter_CaseIndentLevel = -1
+
+
+"#####lightline.vimの設定#####
+set laststatus=2 "ステータスラインを2行表示
+let g:lightline = {
+            \ 'colorscheme' : 'solarized theme',
+            \}
