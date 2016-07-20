@@ -1,3 +1,5 @@
+aaaaaaaaa
+
 "#####vim起動時に実行#####
 if has('vim_starting')
     if &compatible
@@ -18,8 +20,10 @@ if dein#load_state(expand('~/.vim/dein'))
     call dein#begin(expand('~/.vim/dein'))
     call dein#add('Shougo/vimproc.vim', {'build': 'make'})
 
-    call dein#add('Shougo/neocomplete.vim')
-    call dein#add('Yggdroot/indentLine')
+    call dein#add('Shougo/neocomplete.vim') "補完機能、設定済
+    call dein#add('Shougo/unite.vim') "なんかいろいろと便利、未設定
+    call dein#add('Yggdroot/indentLine') "インデント整えるやつ
+    call dein#add('Shougo/neoyank.vim') "yank/history 未設定
 
     call dein#end()
     call dein#save_state()
@@ -88,6 +92,12 @@ set smartcase "検索文字列に大文字が含まれている場合は区別�
 set wrapscan "検索時に最後まで行ったら最初に戻る
 set incsearch "インクリメンタル検索を有効
 set hlsearch "検索結果をハイライト表示
+
+
+"#####neoyankの設定#####
+"let g:neoyank#limit
+"let g:neoyank#file
+"let g:neoyank#registers
 
 
 "#####neocompleteの設定#####
