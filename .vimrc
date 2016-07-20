@@ -204,7 +204,7 @@ let g:neosnippet#enable_snipmate_compatibility = 1
 " Tell Neosnippet about the other snippets
 let g:neosnippet#snippets_directory='~/.vim/dein/repos/github.com/honza/vim-snippets/snippets'
 
-".latexじゃないと正常に動かないようなので.tex用に設定追加
+".texはplaintex?として扱われてたみたいなのでlatexに変更
 let g:tex_flavor='latex'
 
 
