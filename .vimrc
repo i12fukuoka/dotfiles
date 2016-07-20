@@ -180,7 +180,7 @@ endif
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 
-"####neosnippetの設定#####
+"#####neosnippetの設定#####
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -206,6 +206,7 @@ let g:neosnippet#snippets_directory='~/.vim/dein/repos/github.com/honza/vim-snip
 
 ".latexじゃないと正常に動かないようなので.tex用に設定追加
 let g:tex_flavor='latex'
+
 
 "#####jscomplete-vimの設定#####
 autocmd FileType javascript
