@@ -31,7 +31,6 @@ if dein#load_state(expand('~/.vim/dein'))
     call dein#add('jelera/vim-javascript-syntax') "javascriptのsyntax強化、設定無し?
     call dein#add('jiangmiao/simple-javascript-indenter') "javascriptのインデント強化、設定済
 
-
     call dein#end()
     call dein#save_state()
 endif
@@ -101,6 +100,8 @@ set incsearch "インクリメンタル検索を有効
 set hlsearch "検索結果をハイライト表示
 
 
+"######ここからプラグイン関係の設定######
+"
 "#####neoyankの設定#####
 "let g:neoyank#limit
 "let g:neoyank#file
@@ -182,9 +183,9 @@ let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 "#####neosnippetの設定#####
 " Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
+imap <C-s>     <Plug>(neosnippet_expand_or_jump)
+smap <C-s>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-s>     <Plug>(neosnippet_expand_target)
 
 " SuperTab like snippets behavior.
 "imap <expr><TAB>
