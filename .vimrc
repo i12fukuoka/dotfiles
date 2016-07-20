@@ -1,5 +1,3 @@
-aaaaaaaaa
-
 "#####vim起動時に実行#####
 if has('vim_starting')
     if &compatible
