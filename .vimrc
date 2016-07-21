@@ -6,7 +6,7 @@ if has('vim_starting')
 
     if !isdirectory(expand("~/.vim/repos/github.com/Shougo/dein.vim"))
         echo "installing dein"
-        :call system("git clone https://github.com/Shougo/dein.vim ~/.vim/repos/github.com.Shougo/dein.vim")
+        :call system("git clone https://github.com/Shougo/dein.vim ~/.vim/repos/github.com/Shougo/dein.vim")
     endif
 
     set runtimepath+=~/.vim/repos/github.com/Shougo/dein.vim
@@ -62,8 +62,9 @@ set mouse=a "マウス有効化"
 
 "#####空白，タブの設定#####
 set ambiwidth=double "文脈によって解釈が異なる全角文字の幅を2に固定"
-set tabstop=4 "タブ幅をスペース４つ分"
 set expandtab "tabを半角スペースで挿入する"
+set smarttab "たぶんバックスペースで半角スペース4つ削除かな?
+set tabstop=4 "タブ幅をスペース４つ分"
 set shiftwidth=4 "vimが自動で生成するtab幅をスペース4つ分"
 
 
@@ -183,9 +184,9 @@ let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 "#####neosnippetの設定#####
 " Plugin key-mappings.
-imap <C-s>     <Plug>(neosnippet_expand_or_jump)
-smap <C-s>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-s>     <Plug>(neosnippet_expand_target)
+imap <C-d>     <Plug>(neosnippet_expand_or_jump)
+smap <C-d>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-d>     <Plug>(neosnippet_expand_target)
 
 " SuperTab like snippets behavior.
 "imap <expr><TAB>
