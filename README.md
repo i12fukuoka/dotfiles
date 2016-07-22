@@ -4,6 +4,7 @@ vim，zsh，dotfilesです.
 
 ## lua付きvimのインストール
 neocompleteを使用するためにはlua付きvimのインストールが必要になる.
+  
 
 ***
 $brew install vim --with-lua
