@@ -26,6 +26,8 @@ if dein#load_state(expand('~/.vim/dein'))
     call dein#add('Yggdroot/indentLine') "インデント整えるやつ
     call dein#add('Shougo/neoyank.vim') "yank/history 未設定
     call dein#add('itchyny/lightline.vim') "ステータスラインの改造用、未設定
+    call dein#add('tomasr/molokai') "カラースキーマ用
+    call dein#add('tpope/vim-fugitive') "vim上でgitを使うよう,主にdiff用
 
     call dein#add('mattn/jscomplete-vim') "javascriptのメソッド補完、設定済
     call dein#add('jelera/vim-javascript-syntax') "javascriptのsyntax強化、設定無し?
@@ -43,7 +45,7 @@ endif
 "#####画面#####
 set columns=238
 set lines=54
-colorscheme murphy "カラースキーマを設定
+colorscheme molokai "カラースキーマを設定
 set background=dark "暗い配色にする
 
 
@@ -226,3 +228,8 @@ set laststatus=2 "ステータスラインを2行表示
 let g:lightline = {
             \ 'colorscheme' : 'solarized theme',
             \}
+
+
+"#####Molokaiの設定#####
+let g:molokai_original = 1
+let g:rehash256 = 1
