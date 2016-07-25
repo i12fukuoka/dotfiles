@@ -13,30 +13,23 @@ $brew install vim --with-lua
   
   
   
-  
+ <!-- 
 ## ローカルへのvimのインストール
-
 業務上，管理者権限が与えられていない場合vimのupgradeは面倒なものになるのでメモ書き.  
-  
   
 #### ローカルへbrewをインストール
 /opt/homebrew ディレクトリの作成.
-  
 ***
 $mkdir -p ~/opt/hombrew
 $cd ~/opt
 $chown ${USER}:staff homebrew
 ***
   
-
-brew のインストール.  
-  
-
+brew のインストール.
 ***
 $curl -L https://github.com/Homebrew/homebrew/tarball/master | tar xz --strip 1 -C homebrew
 ***
   
-
 実行パスの設定.  
 ***
 $export PATH=$PATH:~/opt/homebrew/bin
@@ -46,3 +39,4 @@ $export PATH=$PATH:~/opt/homebrew/bin
 ***
 export HOMEBREW_CACHE=~/opt/homebrew/cache
 ***
+-->
