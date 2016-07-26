@@ -13,7 +13,6 @@ $brew install vim --with-lua
   
   
   
- <!-- 
 ## ローカルへのvimのインストール
 業務上，管理者権限が与えられていない場合vimのupgradeは面倒なものになるのでメモ書き.  
   
@@ -39,4 +38,3 @@ $export PATH=$PATH:~/opt/homebrew/bin
 ***
 export HOMEBREW_CACHE=~/opt/homebrew/cache
 ***
--->
