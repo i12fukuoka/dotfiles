@@ -1,40 +1,39 @@
 # dotfiles
 vim，zsh，dotfilesです.  
-.toml未対応，又プラグインは未設定のものもあるので要修正.  
-
-
-## lua付きvimのインストール
-neocompleteを使用するためにはlua付きvimのインストールが必要になる.
-  
-
-***
-$brew install vim --with-lua
-***
+.toml未作成，又プラグインは未設定のものもあるので要修正.  
   
   
+## 1.lua付きvimのインストール
+neocompleteを使用するためにはlua付きvimのインストールが必要になる.  
   
-## ローカルへのvimのインストール
-業務上，管理者権限が与えられていない場合vimのupgradeは面倒なものになるのでメモ書き.  
+'$brew install vim --with-lua'
+  
+  
+## 2.ローカルへのvimのインストール
+業務上，管理者権限が与えられていない場合vimのupgradeは面倒なものになる.  
+brewをローカルにインストールすることで解決を図る方法メモ書き.
   
 #### ローカルへbrewをインストール
-/opt/homebrew ディレクトリの作成.
-***
-$mkdir -p ~/opt/hombrew
-$cd ~/opt
-$chown ${USER}:staff homebrew
-***
+
+1. /opt/homebrew ディレクトリの作成.  
+
+'''shell:mkdir
+$mkdir -p ~/opt/hombrew  
+$cd ~/opt  
+$chown ${USER}:staff homebrew  
+'''
   
-brew のインストール.
-***
+2. brew のインストール.  
+'''shell:install
 $curl -L https://github.com/Homebrew/homebrew/tarball/master | tar xz --strip 1 -C homebrew
-***
+'''
   
-実行パスの設定.  
-***
-$export PATH=$PATH:~/opt/homebrew/bin
-***
+3. 実行パスの設定.  
+'''shell:pass
+$export PATH=~/opt/homebrew/bin:$PATH  
+'''
   
-キャッシュパスの設定.  
-***
-export HOMEBREW_CACHE=~/opt/homebrew/cache
-***
+4. キャッシュパスの設定.  
+'''shell:pashh
+export HOMEBREW_CACHE=~/opt/homebrew/cache  
+'''

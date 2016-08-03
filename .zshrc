@@ -121,11 +121,11 @@ zstyle ":vcs_info:bzr:*" use-simple true
 zstyle ":vcs_info:*" max-exports 6
 
 if is-at-least 4.3.10; then
-zstyle ":vcs_info:git:*" check-for-changes true # commitしていないのをチェック
-zstyle ":vcs_info:git:*" stagedstr "<S>"
-zstyle ":vcs_info:git:*" unstagedstr "<U>"
-zstyle ":vcs_info:git:*" formats "(%b) %c%u"
-zstyle ":vcs_info:git:*" actionformats "(%s)-[%b|%a] %c%u"
+    zstyle ":vcs_info:git:*" check-for-changes true # commitしていないのをチェック
+    zstyle ":vcs_info:git:*" stagedstr "<S>"
+    zstyle ":vcs_info:git:*" unstagedstr "<U>"
+    zstyle ":vcs_info:git:*" formats "(%b) %c%u"
+    zstyle ":vcs_info:git:*" actionformats "(%s)-[%b|%a] %c%u"
 fi
 
 # end VCS
@@ -134,9 +134,9 @@ fi
 PROMPT="%B$GREEN%n$DEFAULT%b@%B$CYAN%m$DEFAULT%b "
 
 function _update_vcs_info_msg() {
-psvar=()
-LANG=en_US.UTF-8 vcs_info
-[[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+    psvar=()
+    LANG=en_US.UTF-8 vcs_info
+    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 }
 
 RPROMPT="["
