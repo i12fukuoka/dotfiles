@@ -23,7 +23,7 @@ $chown ${USER}:staff homebrew
 
 * brew のインストール.  
 ```shell:install
-$curl -L https://github.com/Homebrew/homebrew/tarball/master | tar xz --strip *-C homebrew
+$curl -L https://github.com/Homebrew/homebrew/tarball/master | tar xz --strip 1 -C homebrew
 ```
 
 * 実行パスの設定.  
