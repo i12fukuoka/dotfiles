@@ -6,7 +6,7 @@ vim，zsh，dotfilesです.
 ## 1.lua付きvimのインストール
 neocompleteを使用するためにはlua付きvimのインストールが必要になる.  
   
-'$brew install vim --with-lua'
+`$brew install vim --with-lua`
   
   
 ## 2.ローカルへのvimのインストール
@@ -37,3 +37,4 @@ $export PATH=~/opt/homebrew/bin:$PATH
 '''shell:pashh
 export HOMEBREW_CACHE=~/opt/homebrew/cache  
 '''
+
