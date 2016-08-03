@@ -17,24 +17,23 @@ brewをローカルにインストールすることで解決を図る方法メ�
 
 1. /opt/homebrew ディレクトリの作成.  
 
-'''shell:mkdir
+```shell:mkdir
 $mkdir -p ~/opt/hombrew  
 $cd ~/opt  
 $chown ${USER}:staff homebrew  
-'''
+```
   
 2. brew のインストール.  
-'''shell:install
+```shell:install
 $curl -L https://github.com/Homebrew/homebrew/tarball/master | tar xz --strip 1 -C homebrew
-'''
+```
   
 3. 実行パスの設定.  
-'''shell:pass
+```shell:pass
 $export PATH=~/opt/homebrew/bin:$PATH  
-'''
+```
   
 4. キャッシュパスの設定.  
-'''shell:pashh
+```shell:pash
 export HOMEBREW_CACHE=~/opt/homebrew/cache  
-'''
-
+```
