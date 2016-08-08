@@ -8,8 +8,17 @@ bindkey -v
 #カラーを使用できるようにする
 autoload -Uz colors
 colors
+local DEFAULT=%{$reset_color%}
+local RED=%{$fg[red]%}
+local GREEN=%{$fg[green]%}
+local YELLOW=%{$fg[yellow]%}
+local BLUE=%{$fg[blue]%}
+local PURPLE=%{$fg[purple]%}
+local CYAN=%{$fg[cyan]%}
+local WHITE=%{$fg[white]%}
 
 #自動補完を有効
+fpath=(/usr/local/share/zsh-completions $fpath)
 autoload -U compinit; compinit
 
 #beepを無効にする
@@ -32,13 +41,13 @@ alias vi=vim
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
-#Cellarへの移動
-alias -g Cellar='/usr/local/Cellar'
-
 #グローバルエイリアス
 alias -g @g='| grep'
 alias -g @x='| xargs'
 
+#Cellarへの移動
+setopt CDABLE_VARS
+hash -d Cellar=/usr/local/Cellar
 
 ####ヒストリの設定####
 HISTFILE=~/.zsh_history
