@@ -8,7 +8,7 @@ neocompleteを使用するためにはlua付きvimのインストールが必要
 `$brew install vim --with-lua`
 
 ## ローカルへのvimのインストール
-業務上，管理者権限が与えられていない場合vimのupgradeは面倒なものになる.  
+管理者権限が与えられていない場合でのvimのupgradeは面倒なものになる.  
 brewをローカルにインストールすることで解決を図る方法メモ書き.
 
 #### ローカルへbrewをインストール
@@ -33,5 +33,5 @@ $export PATH=~/opt/homebrew/bin:$PATH
 
 * キャッシュパスの設定.  
 ```shell:pash
-export HOMEBREW_CACHE=~/opt/homebrew/cache  
+$export HOMEBREW_CACHE=~/opt/homebrew/cache  
 ```

@@ -19,7 +19,7 @@ local WHITE=%{$fg[white]%}
 
 #自動補完を有効
 fpath=(/usr/local/share/zsh-completions $fpath)
-autoload -U compinit; compinit
+autoload -U compinit; compinit -u
 
 #beepを無効にする
 setopt no_beep
