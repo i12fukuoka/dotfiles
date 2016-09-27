@@ -15,7 +15,7 @@ if has('vim_starting')
         :call system("git clone https://github.com/Shougo/dein.vim ~/.vim/repos/github.com/Shougo/dein.vim")
     endif
 
-    set runtimepath+=~/.vim/repos/github.com/Shougo/dein.vim
+    set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after,~/.vim/repos/github.com/Shougo/dein.vim
 endif
 
 
