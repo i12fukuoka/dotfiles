@@ -124,6 +124,18 @@ set incsearch "インクリメンタル検索を有効
 set hlsearch "検索結果をハイライト表示
 
 
+"#####バイナリーファイルへの対応#####
+augroup BinaryXXD
+    autocmd!
+    autocmd BufReadPre  *.bin let &binary =1
+    autocmd BufReadPost * if &binary | silent %!xxd -g 1
+    autocmd BufReadPost * set ft=xxd | endif
+    autocmd BufWritePre * if &binary | %!xxd -r | endif
+    autocmd BufWritePost * if &binary | silent %!xxd -g 1
+    autocmd BufWritePost * set nomod | endif
+augroup END
+
+
 "######ここからプラグイン関係の設定######
 "
 "#####neoyankの設定#####
