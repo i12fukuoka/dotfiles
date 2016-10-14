@@ -1,6 +1,6 @@
-/*
- * Description:*
- * <+CURSOR+>
+/**
+ * Description:
+ *  <+CURSOR+>
  *
  * Filename:<+FILENAME+>
  * Created on:<+DATE+>

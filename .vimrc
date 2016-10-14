@@ -136,6 +136,10 @@ augroup BinaryXXD
 augroup END
 
 
+"#####C--の開発のための設定#####
+au BufNewFile,BufRead *.cmm setf c
+
+
 "######ここからプラグイン関係の設定######
 "
 "#####neoyankの設定#####
