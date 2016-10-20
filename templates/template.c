@@ -7,5 +7,5 @@
  * @author Kazuya Fukuoka
  */
 
-int main(){
-}
+
+

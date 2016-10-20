@@ -8,6 +8,3 @@ Created on <+DATE+>
 @author: Kazuya Fukuoka
 """
 
-import sys
-import numpy as np
-import matplotlib.pyplot as plt
