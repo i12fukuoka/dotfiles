@@ -1,0 +1,129 @@
+if &compatible
+    set nocompatible
+endif
+
+function! On_filetype() abort
+    if execute('filetype') =~# 'OFF'
+        silent! filetype plugin indent on
+        syntax enable
+        filetype detect
+    endif
+endfunction
+
+augroup MyAutoCmd
+    autocmd!
+    autocmd FileType,Syntax,BufNewFile,BufNew,BufRead *?
+                \ call On_filetype()
+    "autocmd CursorHold *? syntax sync minlines=300
+augroup END
+
+    if !empty(argv())
+        call On_filetype()
+    endif
+
+if has('vim_starting')
+
+    let s:is_windows = has('win32') || has('win64')
+
+
+    "以下、初期化作業?
+    function! IsWindows() abort
+        return s:is_windows
+    endfunction
+
+    function! IsMac() abort
+        return !s:is_windows && !has('win32unix')
+                    \ && (has('mac') || has('macunix') || has('gui_macvim')
+                    \    || (!executable('xdg-open') && system('uname') =~? '^darwin'))
+    endfunction
+
+    if has('vim_starting') && &encoding !=# 'utf-8'
+        if IsWindows() && !has('gui_running')
+            set encoding=cp932
+        else
+            set encoding=utf-8
+        endif
+    endif
+
+    let &fileencodings = join([
+                \ 'ucs-bom', 'iso-2022-jp-3', 'utf-8', 'euc-jp', 'cp932'])
+
+    if !has('gui_running') && IsWindows()
+        set termencoding=cp932
+    endif
+
+    if has('multi_byte_ime')
+        set iminsert=0 imsearch=0
+    endif
+
+    if IsWindows()
+        set shellslash
+    endif
+
+    "うむむ
+    let $CACHE = expand('~/.cache')
+
+    if !isdirectory(expand($CACHE))
+        call mkdir(expand($CACHE), 'p')
+    endif
+
+    "dein　うむむ　finddir使うべき?
+    let s:dein = expand($CACHE . '/dein')
+    let s:dein_dir = s:dein . '/repos/github.com/Shougo/dein.vim'   "ここをおいおいのディレクトリ構成とともにfinddirにしてみたい
+    if s:dein_dir != '' || &runtimepath !~ '/dein.vim'
+        if s:dein_dir == '' && &runtimepath !~ '/dein.vim'
+            let s:dein_dir = expand('$CACHE/dein')
+                        \. '/repos/github.com/Shougo/dein.vim'
+            if !isdirectory(s:dein_dir)
+                execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
+            endif
+        endif
+        execute 'set runtimepath^=' . substitute(
+                    \ fnamemodify(s:dein_dir, ':p') , '/$', '', '')
+    endif
+endif
+
+"むむむ　deindeindein
+let g:dein#install_progress_type = 'title'
+let g:dein#install_message_type = 'none'
+let g:dein#enable_notification = 1
+"let g:dein#notification_icon =
+
+let s:dein_path = expand('$CACHE/dein')
+if dein#load_state(s:dein_path)
+    call dein#begin(s:dein_path)
+
+    let g:rc_dir = expand('~/.vim/rc')
+    let s:toml = g:rc_dir . '/dein.toml'
+    let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
+    call dein#load_toml(s:toml, {'lazy': 0})
+    call dein#load_toml(s:lazy_toml, {'lazy': 1})
+
+    if dein#tap('deoplete.nvim') && has('nvim')
+        call dein#disable('neocomplete.vim')
+    endif
+
+    call dein#end()
+    call dein#save_state()
+
+    if has('nvim')
+        call dein#load_toml(g:rc_dir . '/deineo.toml', {})
+    endif
+endif
+
+if dein#check_install()
+    call dein#install()
+endif
+
+if !has('vim_starting')
+    call dein#call_hook('source')
+    call dein#call_hook('post_source')
+
+    syntax enable
+    filetype plugin indent on
+endif
+
+"うむむ　オプション用
+execute 'source' fnameescape(resolve(expand('<sfile>:p:h') . '/rc/option_rc.vim'))
+
+set secure
