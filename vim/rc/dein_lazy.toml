@@ -1,7 +1,10 @@
 [[plugins]]
 repo = 'Shougo/neomru.vim'
-on_if = 1
-on_source = ['unite.vim', 'denite.vim']
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+on_source = 'unite.vim'
 
 [[plugins]]
 repo = 'Shougo/neoyank.vim'
@@ -12,6 +15,7 @@ on_source = ['unite.vim', 'denite.vim']
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
 depends = 'context_filetype.vim'
+if = "has('lua')"
 on_event = 'InsertEnter'
 hook_source = '''
     let g:neocomplete#enable_at_startup = 1
@@ -45,6 +49,7 @@ hook_add = '''
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
+if = "has('python3')"
 on_cmd = 'Denite'
 hook_source = 'source ~/.vim/rc/plugins/denite.rc.vim'
 hook_add = '''
@@ -63,6 +68,9 @@ hook_add = '''
     nnoremap <silent> ft :<C-u>Denite filetype<CR>
     nnoremap <silent> <C-t> :<C-u>Denite unite:tab -select=`tabpagenr()-1` -mode=normal<CR>
 '''
+
+[[pluhins]]
+repo = 'ctrlpvim/ctrlp.vim'
 
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
@@ -85,6 +93,14 @@ repo = 'ujihisa/neco-look'
 on_source = ['neocomplete.vim', 'deoplete.nvim']
 
 [[plugins]]
+repo = 'Shougo/neco-vim'
+on_ft = 'vim'
+
+[[plugins]]
+repo = 'Shougo/neco-syntax'
+on_source = ['neocomplete.vim', 'deoplete.nvim']
+
+[[plugins]]
 repo = 'davidhalter/jedi-vim'
 if = "!has('nvim')"
 on_ft = 'python'
@@ -97,5 +113,16 @@ hook_source = '''
     autocmd MyAutoCmd FileType java setlocal omnifunc=javacomplete#Complete
 '''
 
+[[plugins]]
+repo = 'kana/vim-smartchr'
+on_event = 'InsertEnter'
+hook_source = '''
+inoremap <buffer> <expr>= smartchr#loop(' = ', ' == ', '=')
+inoremap <buffer> <expr>, smartchr#loop(', ', ',')
+inoremap <buffer> <expr>、 smartchr#loop('，')
+inoremap <buffer> <expr>。 smartchr#loop('.')
+'''
 
-
+[[plugins]]
+repo = 'nixprime/cpsm'
+on_source = 'denite.nvim'

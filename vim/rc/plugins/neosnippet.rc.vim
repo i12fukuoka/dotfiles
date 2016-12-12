@@ -23,7 +23,7 @@ let g:neosnippet#enable_complete_done = 1
 let g:neosnippet#expand_word_boundary = 1
 
 " Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/.vim/dein/repos/github.com/honza/vim-snippets/snippets'
+let g:neosnippet#snippets_directory='~/.cache/dein/repos/github.com/honza/vim-snippets/snippets'
 
 ".texはplaintex?として扱われてたみたいなのでlatexに変更
 let g:tex_flavor='latex'

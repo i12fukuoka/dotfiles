@@ -3,11 +3,10 @@ repo = 'Shougo/dein.vim'
 rtp = ''
 
 [[plugins]]
-repo = 'Shougo/vimproc.vim'
-build = 'make'
+repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
-repo = 'Shougo/neosnippet-snippets'
+repo = 'honza/vim-snippets'
 
 [[plugins]]
 repo = 'jelera/vim-javascript-syntax'
@@ -18,16 +17,18 @@ repo = 'jiangmiao/simple-javascript-indenter'
 [[plugins]]
 repo = 'cespare/vim-toml'
 
+[[plugins]]
+repo = 'mxw/vim-jsx'
 
 [[plugins]]
-repo = 'itchyny/lightline.vim'
-hook_add = 'set laststatus=2'
+repo = 'vim-jp/autofmt'
 
 [[plugins]]
 repo = 'Yggdroot/indentLine'
+
+[[plugins]]
+repo = 'tomasr/molokai'
 hook_add = '''
     let g:molokai_original = 1
 '''
 
-[[plugins]]
-repo = 'tomasr/molokai'

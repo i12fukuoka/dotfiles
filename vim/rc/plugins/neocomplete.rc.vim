@@ -2,7 +2,7 @@ let g:neocomplete#disable_auto_complete = 0
 
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#enable_camel_case = 1
-let g:neocomplete#auto_complete_delay  30
+let g:neocomplete#auto_complete_delay = 30
 
 let g:neocomplete#enable_fuzzy_completion = 1
 
@@ -20,7 +20,7 @@ endif
 " let g:marching_enable_neocomplete = 1
 
 let g:neocomplete#sources#omni#input_patterns.python =
-        \ '[^. *\t]\.\w*\|\h\w*
+        \ '[^. *\t]\.\w*\|\h\w*'
 
 if !exists('g:neocomplete#keyword_patterns')
     let g:neocomplete#keyword_patterns = {}
@@ -45,7 +45,7 @@ function! s:my_cr_function()
     "return pumvisible() ? "\<C-y>" : "\<CR>"
 endfunction
 " <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"

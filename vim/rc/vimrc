@@ -1,0 +1,73 @@
+if &compatible
+    set nocompatible
+endif
+
+set encoding=utf-8
+scriptencoding utf-8
+
+"厨二なので厨二な人のgithubを参考にしています.
+"パクリと言われても仕方ないね
+
+"あまり意味はないけど
+"設定ファイルは~/.vim/rcにあると仮定，より安全にパスを取り出し実行
+function! s:source_rc(path, ...) abort
+    let use_global = get(a:000, 0, !has('vim_starting'))
+    let abspath  =  resolve(expand('$HOME/.vim/rc/' . a:path))
+    if !use_global
+        execute 'source' fnameescape(abspath)
+        return
+    endif
+
+    let content = map(readfile(abspath), 'substitute(v:val, "^\\W*\\zsset\\ze\\W", "setglobal", "")')
+    let tempfile = tempname()
+    try
+        call writefile(content, tempfile)
+        execute printf('source %s', fnameescape(tempfile))
+    finally
+        if filereadable(tenmpfile)
+            call delete(tempfile)
+        endif
+    endtry
+endfunction
+
+"編集作業開始時にインデント，シンタックスをONにする
+augroup MyAutoCmd
+    autocmd!
+    autocmd FileType,Syntax,BufNewFile,BufNew,BufRead *?
+                \ call vimrc#on_filetype()
+augroup END
+
+"何が何でもインデント，シンタックスをONにする
+if !empty(argv())
+    call vimrc#on_filetype()
+endif
+
+"初期化用vimrc
+if has('vim_starting')
+    call s:source_rc('init.rc.vim')
+endif
+
+"プラグイン管理用vimrc
+"vim_starting内に書いてはいけない?
+call s:source_rc('dein.rc.vim')
+
+"スタート時じゃなくても発火
+if !has('vim_starting')
+    call dein#call_hook('source')
+    call dein#call_hook('post_source')
+
+    syntax enable
+    filetype plugin indent on
+endif
+
+"以下，設定用vimrc
+call s:source_rc('options.rc.vim')
+call s:source_rc('mappings.rc.vim')
+
+"nvim使いたい
+if has('nvim')
+    call s:source_rc('neovim.rc.vim')
+endif
+
+"さあ丸投げだ
+set secure
