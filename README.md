@@ -1,6 +1,6 @@
 # dotfiles
 vim，zsh，dotfilesです.  
-.toml未作成，又プラグインは未設定のものもあるので要修正.  
+非常に汚い
 
 ## lua付きvimのインストール
 neocompleteを使用するためにはlua付きvimのインストールが必要になる.  
