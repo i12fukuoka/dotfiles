@@ -35,10 +35,10 @@ depends = 'neomru.vim'
 on_source = 'denite.vim'
 hook_source = 'source ~/.vim/rc/plugins/unite.rc.vim'
 hook_add = '''
-    nnoremap <silent> <C-k>
-            \ :<C-u>Unite change jump<CR>
-    nnoremap <silent> <C-t>
-            \ :<C-u>Unite -auto-resize -select=`tabpagenr()-1` tab<CR>
+    nnoremap <silent> ,uf :<C-u>Unite file<CR>
+    nnoremap <silent> ,ud :<C-u>Unite directory<CR>
+    nnoremap <silent> <C-k> :<C-u>Unite change jump<CR>
+    nnoremap <silent> <C-t> :<C-u>Unite -auto-resize -select=`tabpagenr()-1` tab<CR>
     " Tag jump.
     nnoremap <silent><expr> tt  &filetype == 'help' ?  "g\<C-]>" :
             \ ":\<C-u>UniteWithCursorWord -buffer-name=tag -immediately
@@ -53,20 +53,10 @@ if = "has('python3')"
 on_cmd = 'Denite'
 hook_source = 'source ~/.vim/rc/plugins/denite.rc.vim'
 hook_add = '''
-    nnoremap <silent> ;r
-        \ :<C-u>Denite -buffer-name=register unite:register neoyank<CR>
-    nnoremap <silent> [Window]<Space>
-        \ :<C-u>Denite file_rec:~/.vim/rc<CR>
+    nnoremap <silent>,df :<C-u>Denite file_rec<CR>
     nnoremap <silent> / :<C-u>Denite -buffer-name=search line<CR>
     nnoremap <silent> * :<C-u>DeniteCursorWord -buffer-name=search line<CR>
-    nnoremap <silent> [Window]s :<C-u>Denite file_point file_mru
-        \ `finddir('.git', ';') != '' ? 'file_rec/git' : 'file_rec'`<CR>
-    nnoremap <silent> [Window]n :<C-u>Denite dein<CR>
-    nnoremap <silent> [Window]g :<C-u>Denite ghq<CR>
-    nnoremap <silent> ;g :<C-u>Denite -buffer-name=search -no-empty grep<CR>
     nnoremap <silent> n :<C-u>Denite -buffer-name=search -resume -mode=normal<CR>
-    nnoremap <silent> ft :<C-u>Denite filetype<CR>
-    nnoremap <silent> <C-t> :<C-u>Denite unite:tab -select=`tabpagenr()-1` -mode=normal<CR>
 '''
 
 [[pluhins]]
@@ -77,6 +67,10 @@ repo = 'Shougo/context_filetype.vim'
 
 [[plugins]]
 repo = 'Shougo/unite-outline'
+on_source = 'unite.vim'
+
+[[plugins]]
+repo = 'tsukkee/unite-tag'
 on_source = 'unite.vim'
 
 [[plugins]]
@@ -115,7 +109,7 @@ hook_source = '''
 
 [[plugins]]
 repo = 'kana/vim-smartchr'
-on_event = 'InsertEnter'
+on_event = 'InsertCharPre'
 hook_source = '''
 inoremap <buffer> <expr>= smartchr#loop(' = ', ' == ', '=')
 inoremap <buffer> <expr>, smartchr#loop(', ', ',')

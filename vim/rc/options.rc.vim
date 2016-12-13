@@ -127,4 +127,4 @@ augroup END
 "#####C--の開発のための設定#####
 au BufNewFile,BufRead *.cmm setf c
 
-
+let g:tex_flavor='latex'

@@ -1,12 +1,13 @@
-if &compatible
-    set nocompatible
-endif
-
 set encoding=utf-8
 scriptencoding utf-8
 
 "厨二なので厨二な人のgithubを参考にしています.
 "パクリと言われても仕方ないね
+
+"vimをvimとして動作
+if &compatible
+    set nocompatible
+endif
 
 "あまり意味はないけど
 "設定ファイルは~/.vim/rcにあると仮定，より安全にパスを取り出し実行

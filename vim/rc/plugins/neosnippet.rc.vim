@@ -1,6 +1,6 @@
 " Plugin key-mappings.
-imap <C-d>     <Plug>(neosnippet_expand_or_jump)
-smap <C-d>     <Plug>(neosnippet_expand_or_jump)
+imap <C-d>     <Plug>(neosnippet_jump_or_expand)
+smap <C-d>     <Plug>(neosnippet_jump_or_expand)
 xmap <C-d>     <Plug>(neosnippet_expand_target)
 
 " SuperTab like snippets behavior.
@@ -8,8 +8,8 @@ xmap <C-d>     <Plug>(neosnippet_expand_target)
 " \ pumvisible() ? "\<C-n>" :
 " \ neosnippet#expandable_or_jumpable() ?
 " \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-            \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+"smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+"            \ "\<Plug>(neosnippet_jump_or_expand)" : "\<TAB>"
 
 " For conceal markers.
 if has('conceal')
@@ -24,6 +24,3 @@ let g:neosnippet#expand_word_boundary = 1
 
 " Tell Neosnippet about the other snippets
 let g:neosnippet#snippets_directory='~/.cache/dein/repos/github.com/honza/vim-snippets/snippets'
-
-".texはplaintex?として扱われてたみたいなのでlatexに変更
-let g:tex_flavor='latex'

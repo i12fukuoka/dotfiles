@@ -10,7 +10,7 @@ let g:neocomplete#auto_completion_start_length = 2
 let g:neocomplete#manual_completion_start_length = 0
 let g:neocomplete#min_keyword_length = 3
 
-" let g:neocomplete#enable_auto_select = 1
+let g:neocomplete#enable_auto_select = 1
 
 let g:neocomplete#enable_auto_delimiter = 1
 if !exists('g:neocomplete#sources#omni#input_patterns')
@@ -33,16 +33,16 @@ call neocomplete#custom#source('look', 'min_pattern_length', 4)
 " call neocomplete#custom#source('_', 'converters',
 
 " Plugin key-mappings.
+" 補完キャンセル
 inoremap <expr><C-g>    neocomplete#undo_completion()
+" シェルのような補完
 inoremap <expr><C-l>    neocomplete#complete_common_string()
 
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+inoremap <silent><CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-    return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-    " For no inserting <CR> key.
-    "return pumvisible() ? "\<C-y>" : "\<CR>"
+    return neocomplete#smart_close_popup() . "\<CR>"
 endfunction
 " <TAB>: completion.
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
