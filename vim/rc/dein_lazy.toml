@@ -35,8 +35,9 @@ depends = 'neomru.vim'
 on_source = 'denite.vim'
 hook_source = 'source ~/.vim/rc/plugins/unite.rc.vim'
 hook_add = '''
-    nnoremap <silent> ,uf :<C-u>Unite file<CR>
-    nnoremap <silent> ,ud :<C-u>Unite directory<CR>
+    nnoremap <silent> ,f :<C-u>Unite file<CR>
+    nnoremap <silent> ,d :<C-u>Unite directory<CR>
+    nnoremap <silent> ,g :<C-u>Unite grep<CR>
     nnoremap <silent> <C-k> :<C-u>Unite change jump<CR>
     nnoremap <silent> <C-t> :<C-u>Unite -auto-resize -select=`tabpagenr()-1` tab<CR>
     " Tag jump.
@@ -98,7 +99,10 @@ on_source = ['neocomplete.vim', 'deoplete.nvim']
 repo = 'davidhalter/jedi-vim'
 if = "!has('nvim')"
 on_ft = 'python'
-hook_source = 'source ~/.vim/rc/plugins/jedi-vim.rc.vim'
+hook_source = '''
+    autocmd FileType python setlocal omnifunc=jedi#completions
+    source ~/.vim/rc/plugins/jedi-vim.rc.vim
+'''
 
 [[plugins]]
 repo = 'artur-shaik/vim-javacomplete2'

@@ -11,6 +11,7 @@ function! s:unite_my_settings() abort
     inoremap <silent><buffer><ESC><ESC> <ESC>q
 
     call unite#custom#default_action('file', 'tabopen')
+    call unite#custom#default_action('grep', 'tabopen')
 endfunction
 
 autocmd MyAutoCmd FileType unite call s:unite_my_settings()

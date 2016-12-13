@@ -88,7 +88,7 @@ set formatexpr=autofmt#japanese#formatexpr()    "plugins依存
 "#####ステータスライン#####
 set laststatus=2                "ステータスラインは二行
 set cmdheight=2                 "コマンドラインは二行
-set statusline=%(%F%m%r%)
+set statusline=%<%(%F%m%r%)
               \%=
               \%(char:%b%)
               \%([ft:%Y][enc:%{&encoding}]%)

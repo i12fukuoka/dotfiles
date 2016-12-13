@@ -6,7 +6,10 @@ rtp = ''
 repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
-repo = 'honza/vim-snippets'
+repo = 'hynek/vim-python-pep8-indent'
+
+[[plugins]]
+repo = 'kana/vim-textobj-user'
 
 [[plugins]]
 repo = 'jelera/vim-javascript-syntax'
