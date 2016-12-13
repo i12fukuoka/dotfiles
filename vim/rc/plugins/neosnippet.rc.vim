@@ -23,4 +23,4 @@ let g:neosnippet#enable_complete_done = 1
 let g:neosnippet#expand_word_boundary = 1
 
 " Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/.cache/dein/repos/github.com/honza/vim-snippets/snippets'
+let g:neosnippet#snippets_directory='~/.vim/snippets'
