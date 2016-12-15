@@ -4,7 +4,6 @@ ln -s ~/dotfiles/.zshenv ~/.zshenv
 ln -s ~/dotfiles/.latexmkrc ~/.latexmkrc
 ln -s ~/dotfiles/.pylintrc ~/.pylintrc
 
-ln -s ~/dotfiles/vimrc ~/.vimrc
-ln -s ~/dotfiles/vim/rc ~/.vim/rc
+cp -R ~/dotfiles/vim ~/.vim
 
 

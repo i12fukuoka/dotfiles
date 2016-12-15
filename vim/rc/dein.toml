@@ -35,3 +35,9 @@ hook_add = '''
     let g:molokai_original = 1
 '''
 
+[[plugins]]
+repo = 'rcmdnk/vim-markdown'
+
+[[plugins]]
+repo = 'elzr/vim-json'
+

@@ -40,6 +40,10 @@ alias vi=vim
 #ついでに二つ前、三つ前に戻る設定を付加
 alias ...='cd ../..'
 alias ....='cd ../../..'
+function cdls(){
+    \cd "$@" && ls
+}
+alias cd="cdls"
 
 #グローバルエイリアス
 alias -g @g='| grep'

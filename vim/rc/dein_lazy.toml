@@ -13,6 +13,11 @@ on_event = 'TextYankPost'
 on_source = ['unite.vim', 'denite.vim']
 
 [[plugins]]
+repo = 'Shougo/echodoc.vim'
+on_event = 'CompleteDone'
+hook_source = 'call echodoc#enable()'
+
+[[plugins]]
 repo = 'Shougo/neocomplete.vim'
 depends = 'context_filetype.vim'
 if = "has('lua')"
@@ -108,7 +113,9 @@ hook_source = '''
 repo = 'artur-shaik/vim-javacomplete2'
 on_ft = 'java'
 hook_source = '''
+    if 1
     autocmd MyAutoCmd FileType java setlocal omnifunc=javacomplete#Complete
+    endif 
 '''
 
 [[plugins]]
@@ -124,3 +131,25 @@ inoremap <buffer> <expr>。 smartchr#loop('.')
 [[plugins]]
 repo = 'nixprime/cpsm'
 on_source = 'denite.nvim'
+
+[[pluginss]]
+repo = 'kana/vim-niceblock'
+on_map = {x = '<Plug>'}
+hook_add = '''
+    xmap I <Plug>(niceblock-I)
+    xmap A <Plug>(niceblock-A)
+'''
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+
+[[plugins]]
+repo = 'rhysd/accelerated-jk'
+on_map = {n = '<Plug>'}
+hook_add = '''
+    nmap <silent>j <Plug>(accelerated_jk_gj)
+    nmap <silent>k <Plug>(accelerated_jk_gk)
+'''
+
+[[plugins]]
+repo = 'lambdalisue/vim-findent'
