@@ -24,7 +24,8 @@ if has('vim_starting') && &encoding !=# 'utf-8'
 endif
 
 "読み込める文字コードは色々設定しとく
-let &fileencodings = join(['ucs-bom', 'iso-2022-jp-3', 'utf-8', 'euc-jp', 'cp932'])
+"let &fileencodings = join(['ucs-bom', 'iso-2022-jp-3', 'euc-jp', 'utf-8', 'cp932'])
+set fileencodings=ucs-bom,iso-2022-jp-3,euc-jp,utf-8,cp932
 
 "ウィンドウズでの端末の出力は変えねば
 if !has('gui_runnnig') && IsWindows()

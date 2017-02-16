@@ -1,8 +1,13 @@
 "#####画面#####
-colorscheme molokai
-set columns=238
-set lines=54
-set background=dark             "暗い配色にする
+set t_Co=256
+if !has('nvim')
+    colorscheme molokai
+"    set columns=238            "バグの原因でしかない
+"    set lines=54               "vimとターミナルのウィンドウサイズの認識の差
+else
+    colorscheme pablo
+endif
+"set background=dark             "暗い配色にする
 set splitbelow                  "新規ウィンドウは下
 set splitright                  "新規ウィンドウは右
 set ttyfast                     "スクロールが再描画に?
@@ -21,6 +26,7 @@ set title                       "ターミナルのタイトルをセットす�
 set mouse=a                     "マウス有効化"
 set vb t_vb=                    "beep音を切る，画面フラッシュも消す
 set nostartofline               "移動コマンドを使った時に行頭に移動しない
+set fileformats=unix,dos,mac
 
 
 "#####空白，タブの設定#####
@@ -77,8 +83,8 @@ set nobackup
 set nowritebackup
 set backupdir-=.
 set directory-=.                "swapファイルはtmpにのみ作る
-set undofile                    "実はundoファイルも作ってくれる
-let &g:undodir = &directory     "これもswapファイルと同じ場所へ
+"set undofile                    "実はundoファイルも作ってくれる
+"let &g:undodir = &directory     "これもswapファイルと同じ場所へ
 
 
 "#####日本語フォーマット####
@@ -88,13 +94,14 @@ set formatexpr=autofmt#japanese#formatexpr()    "plugins依存
 "#####ステータスライン#####
 set laststatus=2                "ステータスラインは二行
 set cmdheight=2                 "コマンドラインは二行
-set statusline=%<%(%F%m%r%)
-              \%=
-              \%(char:%b%)
-              \%([ft:%Y][enc:%{&encoding}]%)
-              \%([line:%l/%L%5P]%)
-              \%([size:%obyte]%)
-
+if !has('nvim')
+    set statusline=%<%(%F%m%r%)
+                \%=
+                \%(char:%b%)
+                \%([ft:%Y][enc:%{&encoding}]%)
+                \%([line:%l/%L%5P]%)
+                \%([size:%obyte]%)
+endif
 
 "#####テンプレート#####
 "autocmd BufNewFile *.html 0r ~/dotfiles/templates/template.html "htmlのテンプレート
@@ -115,16 +122,16 @@ set nohlsearch                  "検索結果をハイライト表示しない
 "#####バイナリーファイルへの対応#####
 augroup BinaryXXD
     autocmd!
-    autocmd BufReadPre  *.bin let &binary =1
-    autocmd BufReadPost * if &binary | silent %!xxd -g 1
-    autocmd BufReadPost * set ft=xxd | endif
-    autocmd BufWritePre * if &binary | %!xxd -r | endif
-    autocmd BufWritePost * if &binary | silent %!xxd -g 1
-    autocmd BufWritePost * set nomod | endif
+    autocmd BufReadPre  *.bin let &binary=1
+    autocmd BufReadPost * if &binary | Vinarise | endif
+"    autocmd BufReadPost * set ft=xxd | endif
+"    autocmd BufWritePre * if &binary | "%!xxd -r" | endif
+"    autocmd BufWritePost * if &binary | %!xxd -g 1
+"    autocmd BufWritePost * set nomod | endif
 augroup END
 
 
 "#####C--の開発のための設定#####
-au BufNewFile,BufRead *.cmm setf c
+autocmd BufNewFile,BufReadPre,FilterReadPre,FileReadPre *.cmm setf c
 
 let g:tex_flavor='latex'

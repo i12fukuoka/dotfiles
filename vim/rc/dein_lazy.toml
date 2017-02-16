@@ -122,10 +122,10 @@ hook_source = '''
 repo = 'kana/vim-smartchr'
 on_event = 'InsertCharPre'
 hook_source = '''
-inoremap <buffer> <expr>= smartchr#loop(' = ', ' == ', '=')
-inoremap <buffer> <expr>, smartchr#loop(', ', ',')
-inoremap <buffer> <expr>、 smartchr#loop('，')
-inoremap <buffer> <expr>。 smartchr#loop('.')
+inoremap <expr>= smartchr#loop(' = ', ' == ', '=')
+inoremap <expr>, smartchr#loop(', ', ',')
+inoremap <expr>、 smartchr#loop('，')
+inoremap <expr>。 smartchr#loop('.')
 '''
 
 [[plugins]]
@@ -153,3 +153,9 @@ hook_add = '''
 
 [[plugins]]
 repo = 'lambdalisue/vim-findent'
+
+[[plugins]]
+repo = 'Shougo/vinarise.vim'
+on_cmd = 'Vinarise'
+hook_add = 'let g:vinarise_enable_auto_detect = 1'
+

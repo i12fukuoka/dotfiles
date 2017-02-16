@@ -1,1 +1,1 @@
-execute 'source' fnameescape( resolve( expand('~/.vim/vimrc')))
+execute 'source' (expand('~/.vim/vimrc'))

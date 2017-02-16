@@ -41,7 +41,7 @@ alias vi=vim
 alias ...='cd ../..'
 alias ....='cd ../../..'
 function cdls(){
-    \cd "$@" && ls
+    \cd "$@" && ls -G
 }
 alias cd="cdls"
 
